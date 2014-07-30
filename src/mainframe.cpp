@@ -957,7 +957,7 @@ void CMainFrame::OnShortcutList(GtkMenuItem* mitem UNUSED, CMainFrame* _this)
 void CMainFrame::OnAbout(GtkMenuItem* mitem UNUSED, CMainFrame* _this)
 {
 	char* authors = _(
-			"Testing author\n"
+			"Testing author twice\n"
 			"Somebody stronger than PCMan\n"
 			"Hong Jen Yee (Main developer) <pcman.tw@gmail.com>\n"
          	"Jim Huang (Developer) <jserv.tw@gmail.com>\n"
