@@ -21,6 +21,7 @@
   #pragma implementation "mainframe.h"
 #endif
 
+/* my modifications */
 
 #include <glib/gi18n.h>
 #include <gdk/gdkkeysyms.h>
@@ -420,8 +421,13 @@ static const char *ui_info =
   "    </menu>"
   "    <menu action='help_menu'>"
   "      <menuitem action='shortcut_list'/>"
-  "      <menuitem action='about'/>"
+  //"      <menuitem action='about'/>"
   "    </menu>"
+// Veck Edit starti
+  "		<menu action='help_menu2'>"
+  "		  <menuitem action='about'/>"
+  "		</menu>"
+// Veck Edit end
   "  </menubar>"
   "  <toolbar>"
   "    <separator/>"
@@ -522,6 +528,7 @@ void CMainFrame::MakeUI()
 		{"all_bot_menu", GTK_STOCK_EXECUTE, _("Bot (All Opened Connections)"), NULL, NULL, NULL},
 	#endif
 		{"help_menu", NULL, _("_Help"), NULL, NULL, NULL},
+		{"help_menu2", NULL, _("_Help"), NULL, NULL, NULL},
 		{"shortcut_list", GTK_STOCK_DIALOG_INFO,  _("_Shortcut List"), NULL, NULL, G_CALLBACK (CMainFrame::OnShortcutList)},
 		{"about", GTK_STOCK_ABOUT, NULL, NULL, _("About"), G_CALLBACK (CMainFrame::OnAbout)},
 		// Ansi Editor Menu
@@ -950,7 +957,8 @@ void CMainFrame::OnShortcutList(GtkMenuItem* mitem UNUSED, CMainFrame* _this)
 void CMainFrame::OnAbout(GtkMenuItem* mitem UNUSED, CMainFrame* _this)
 {
 	char* authors = _(
-			"Hong Chen wei (testing2:) <zx776393@yahoo.com.tw>\n"
+			"Testing author\n"
+			"Somebody stronger than PCMan\n"
 			"Hong Jen Yee (Main developer) <pcman.tw@gmail.com>\n"
          	"Jim Huang (Developer) <jserv.tw@gmail.com>\n"
 			"Kan-Ru Chen (Developer) <kanru@kanru.info>\n"
@@ -958,14 +966,15 @@ void CMainFrame::OnAbout(GtkMenuItem* mitem UNUSED, CMainFrame* _this)
 			"Shih-Yuan Lee (Developer) <fourdollars@gmail.com>\n"
 			"Youchen Lee (Developer) <copyleft@utcr.org>\n"
 			"Emfox Zhou (Developer) <emfoxzhou@gmail.com>\n"
-			"Jason Xia (Developer) <jasonxh@gmail.com>"
+			"Jason Xia (Developer) <jasonxh@gmail.com>\n"
+			"Veck Hsiao(Student) <fbukevin@gmail.com>"
 			);
 	char* translators = _( "Chinese Simplified (zh_CN): Haifeng Chen <optical.dlz@gmail.com>" );
 
 	GtkWidget* dlg = gtk_message_dialog_new_with_markup( (GtkWindow*)_this->m_Widget,
 						GTK_DIALOG_DESTROY_WITH_PARENT,
 						GTK_MESSAGE_INFO, GTK_BUTTONS_OK,
-						_("<b>PCManX %s</b>\nA free BBS client developed with GTK+ 2.x\n\n"
+						_("<b>PCMan2 %s</b>\nA free BBS client developed with GTK+ 2.x\n\n"
 						"Copyright © 2005-2012\n"
 						"License: GNU Genral Public License\n"
 						"Project: <a href=\"%s\">%s</a>\n"
